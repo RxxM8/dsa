@@ -28,7 +28,7 @@ int main(){
 
     char word[100];
     printf("Enter a word: ");
-    scanf("%s", word);
+    scanf("%s", &word);
  
     int len=strlen(word);
 
