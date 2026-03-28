@@ -3,35 +3,30 @@
 #define MAX 100
 char stack[MAX];
 int top=-1;
-void push(char x)
-{
+void push(char x){
     stack[++top]=x;
 }
 
-char pop()
-{
+char pop(){
     return stack[top--];
 }
 
-int isBalanced(char expr[])
-{
+int isBal(char expr[]){
     int i=0;
 
-    while (expr[i]!='\0')
-    {
-        if (expr[i]=='(')
-        {
+    while (expr[i]!='\0'){
+        if (expr[i]=='('){
             push(expr[i]);
         }
-        else if (expr[i]==')')
-        {
-            if (top==-1)
+        else if (expr[i]==')'){
+            if (top==-1){
                 return 0;
-
+            }
             char topChar=pop();
 
-            if (expr[i]==')' && topChar!='(')
+            if (expr[i]==')' && topChar!='('){
                 return 0;
+            }
         }
 
         i++;
@@ -40,8 +35,7 @@ int isBalanced(char expr[])
     return (top==-1);
 }
 
-int main()
-{
+int main(){
     char expr[MAX];
 
     printf("Enter Expression: ");
@@ -49,10 +43,11 @@ int main()
 
     top=-1;
 
-    if (isBalanced(expr))
+    if (isBal(expr))
         printf("Balanced Expression");
-    else
+    else{
         printf("Unbalanced Expression");
+    }
 
     return 0;
 }
