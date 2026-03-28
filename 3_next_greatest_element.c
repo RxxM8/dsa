@@ -4,8 +4,7 @@ int stack[100];
 int top = -1;
 
 void push(int x){
-    if (top == 99)
-    {
+    if (top == 99){
         printf("Stack Overflow\n");
         return;
     }
@@ -13,14 +12,17 @@ void push(int x){
 }
 
 int pop(){
-    if (top == -1)
+    if (top == -1){
         return -1;
+    }
+
     return stack[top--];
 }
 
 int peek(){
-    if (top == -1)
+    if (top == -1){
         return -1;
+    }
     return stack[top];
 }
 
