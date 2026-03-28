@@ -17,20 +17,20 @@ void add(){
         printf("Printer Queue Full!\n");
     }
     else{
-    struct Document doc;
-    printf("Enter file name:");
-    scanf("%s",&doc.name);
-    printf("Enter pages:");
-    scanf("%d",&doc.pages);
+        struct Document doc;
+        printf("Enter file name:");
+        scanf("%s",&doc.name);
+        printf("Enter pages:");
+        scanf("%d",&doc.pages);
 
-    if (front==-1){
-        front = 0;
+        if (front==-1){
+            front = 0;
+        }
+        rear++;
+        queue[rear]=doc;
+        printf("'%s' added to queue.\n", doc.name);
+
     }
-    rear++;
-    queue[rear]=doc;
-    printf("'%s' added to queue.\n", doc.name);
-
-}
 }
 
 void print() {
@@ -49,11 +49,11 @@ void displayPending(){
         printf("No pending documents.\n");
     }
     else{
-    printf("\nPending Documents:\n");
-    for (int i=front;i<=rear;i++) {
-        printf("%s - %d pages\n",queue[i].name, queue[i].pages);
+        printf("\nPending Documents:\n");
+        for (int i=front;i<=rear;i++) {
+            printf("%s - %d pages\n",queue[i].name, queue[i].pages);
+        }
     }
-}
 }
 
 int main() {
